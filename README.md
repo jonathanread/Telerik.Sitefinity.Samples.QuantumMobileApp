@@ -31,6 +31,10 @@ If using android emulator authenticating against localhost(10.0.2.2) it requires
    * Go to "Telerik.Sitefinity.Libraries.Model.Document -> Property mappings -> Category" and check the "Selected by default" checkbox and save the change.
 ---
 
+## Authentication Setup
+1. In Sitefinity's backend go to "Administration -> Settings -> Advanced".
+1. Then go to "Authentication -> "
+
 ## The app is using [Progress Sitefinity Digital Experience Cloud](https://docs.sitefinity.com/dec) for tracking and content personalization. In order to enable it you need to do the following:
 
 1. Log in to [Digital Experience Cloud](https://dec.sitefinity.com/) web application.
