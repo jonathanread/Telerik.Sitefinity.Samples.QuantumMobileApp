@@ -108,6 +108,15 @@ global.extendModelWithNatigation = function (viewModel, page) {
         viewModel.navigateToItems(category, BLOG_POSTS);
     };
 
+    viewModel.navigateToFAQ = function(){
+        var navigationEntry = {
+            moduleName: "views/faq/faq",
+            animated: true
+        };
+
+        frames.topmost().navigate(navigationEntry);
+    };
+
     viewModel.navigateToItems = function (category, itemsType) {
         var navigationEntry = {
             moduleName: "views/itemsList/itemsList",
@@ -201,8 +210,8 @@ global.extendModelWithNatigation = function (viewModel, page) {
 }
 
 //This is the localhost endpoint
-global.ServiceEndPoint = "http://192.168.1.40/";//"http://quantummobile.azurewebsites.net/"; 
-global.ServiceEndPointWS = "http://192.168.1.40";//"http://quantummobile.azurewebsites.net"; //this is the ServiceEndPoint without the slash
+global.ServiceEndPoint = "http://192.168.1.40/"; 
+global.ServiceEndPointWS = "http://192.168.1.40"; //this is the ServiceEndPoint without the slash
 
 global.AuthServicePath = "Sitefinity/Authenticate/OpenID/connect/token";
 
@@ -214,6 +223,8 @@ global.CurrentUserServicePath = "api/quantum-mobile/users/current";
 
 global.NewsItemServicePath = "api/quantum-mobile/newsitems({0})?$select=Title,Content,PublicationDate,Author,RelatedMedia&sf_culture={1}";
 global.BlogServicePath = "api/quantum-mobile/blogposts({0})?$select=Title,Content,PublicationDate&sf_culture={1}";
+
+global.FAQServicePath = "api/quantum-mobile/lists(af6ef4a4-1d60-6822-81ac-ff0000da1875)/ListItems";
 
 global.HierarchyTaxaPath = "api/quantum-mobile/hierarchy-taxa";
 

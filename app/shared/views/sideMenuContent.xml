@@ -11,5 +11,6 @@
     <Label text="{{ isEngLang ? marketingEN : marketingES }}" tap="{{navigateToMarketingBlogPosts}}" class="qCategoryLink"></Label>
     <Label text="{{ isEngLang ? developmentEN : developmentES }}" tap="{{navigateToDevBlogPosts}}" class="qCategoryLink" visibility="{{isInManagerPersona ? 'collapse' : 'visible'}}" ></Label>
     <Label text="{{ isEngLang ? whitePapersEN : whitePapersES }}" tap="{{navigateToPaidWhitePapers}}" class="qCategory" />
+    <label text="FAQ" tap="{{ navigateToFAQ }}" class="qCategory" />
   </StackLayout>
 </ScrollView>

@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:rad="shared/views" 
+      xmlns:nsDrawer="nativescript-pro-ui/sidedrawer" 
+      navigatingTo="onNavigatingTo">
+  <rad:navBarWL></rad:navBarWL>
+  <nsDrawer:RadSideDrawer id="mainMenuSideDrawer">
+    <nsDrawer:RadSideDrawer.mainContent>
+      <StackLayout >
+      <Label text="FAQ" horizontalAlignment="center" class="qItemsTitle" />
+        <ListView items="{{ faqDataSource }}" class="" height="100%" itemTap="{{ listViewItemTap }}">
+          <ListView.itemTemplate>
+              <GridLayout columns="*, 40" rows="*">
+                <StackLayout row="0" col="0">
+                  <Label text="{{ Title }}" textWrap="true" class="qTitleList" />               
+                  <Label text="{{ DateCreated | utcDateConverter('') }}" textWrap="true" class="qDateList" />
+                  <HtmlView html="{{Content}}" id="{{UrlName}}" class="qContent" />
+                </StackLayout>                
+              </GridLayout>
+          </ListView.itemTemplate>
+        </ListView>
+      </StackLayout>
+    </nsDrawer:RadSideDrawer.mainContent>
+    <nsDrawer:RadSideDrawer.drawerContent >
+      <rad:sideMenuContent></rad:sideMenuContent>
+    </nsDrawer:RadSideDrawer.drawerContent>
+  </nsDrawer:RadSideDrawer>
+</Page>

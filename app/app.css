@@ -170,3 +170,8 @@
 }
 
 /*#endregion*/
+
+/*#region FAQ */
+.qContent{visibility: collapse;}
+.qContent.show{visibility: visible;}
+/*endregion*/
