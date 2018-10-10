@@ -210,8 +210,8 @@ global.extendModelWithNatigation = function (viewModel, page) {
 }
 
 //This is the localhost endpoint
-global.ServiceEndPoint = "http://192.168.1.40/"; 
-global.ServiceEndPointWS = "http://192.168.1.40"; //this is the ServiceEndPoint without the slash
+global.ServiceEndPoint = "http://169.254.80.80/";
+global.ServiceEndPointWS = "http://169.254.80.80"; //this is the ServiceEndPoint without the slash
 
 global.AuthServicePath = "Sitefinity/Authenticate/OpenID/connect/token";
 
@@ -290,5 +290,36 @@ application.on(application.launchEvent, function (args) {
         console.log(e);
     });
 });
+
+var firebase = require("nativescript-plugin-firebase");
+
+firebase.init({
+  // Optionally pass in properties for database, authentication and cloud messaging,
+  // see their respective docs.
+  onMessageReceivedCallback: function(message) {
+      debugger;
+    console.log("Message " + message.body);
+    //console.log("Body: " + message.text);
+    // if your server passed a custom property called 'foo', then do this:
+    //console.log("Value of 'foo': " + message.data.ShortDesc);
+    var navigationEntry = {
+        moduleName: "views/item/item",
+        context: { items: global.NEWS, id: message.data.id },
+        animated: false
+    };
+
+    frames.topmost().navigate(navigationEntry);
+  },
+  showNotificationsWhenInForeground: true
+}).then(
+    function (instance) {
+      console.log("firebase.init done");
+      firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));
+    },
+    function (error) {
+      console.log("firebase.init error: " + error);
+    }
+);
+
 
 application.start({ moduleName: "views/main-page/main-page" });
